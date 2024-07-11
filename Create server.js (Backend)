@@ -1,0 +1,30 @@
+// server.js
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+let investments = [];
+let nextId = 1;
+
+app.use(express.json());
+
+app.get('/investments', (req, res) => {
+  res.json(investments);
+});
+
+app.post('/investments', (req, res) => {
+  const { fundName, investmentAmount, currentValue, gainLoss } = req.body;
+  const newInvestment = { id: nextId++, fundName, investmentAmount, currentValue, gainLoss };
+  investments.push(newInvestment);
+  res.status(201).json(newInvestment);
+});
+
+app.delete('/investments/:id', (req, res) => {
+  const { id } = req.params;
+  investments = investments.filter(investment => investment.id !== parseInt(id));
+  res.sendStatus(204);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
