@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Mutual Funds Tracker</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, button { margin: 5px; }
+    ul { list-style-type: none; padding: 0; }
+    li { padding: 8px; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+  <h1>Basic Mutual Funds Tracker</h1>
+  <form id="investmentForm">
+    <input type="text" id="fundName" placeholder="Fund Name" required>
+    <input type="number" id="investmentAmount" placeholder="Investment Amount" required>
+    <input type="number" id="currentValue" placeholder="Current Value" required>
+    <button type="submit">Add Investment</button>
+  </form>
+  <ul id="investmentList"></ul>
+  <script src="script.js"></script>
+</body>
+</html>
